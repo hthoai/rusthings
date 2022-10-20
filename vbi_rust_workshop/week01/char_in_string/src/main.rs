@@ -1,13 +1,10 @@
 use std::io;
 
-fn main() {
-    let input = "adbcdaDd";
+
+fn char_in_string(input: &str, user_input: &str) {
     let mut not_found_chars = String::new();
-    let mut user_input = String::new();
     let mut count = 0;
-    println!("Please type one character:");
-    io::stdin().read_line(&mut user_input).unwrap();
-    
+
     for char in input.chars() {
         if char == user_input.as_bytes()[0] as char {
             count += 1;
@@ -17,4 +14,13 @@ fn main() {
     }
 
     println!("{}, \"{}\"", count, not_found_chars);
+}
+
+
+fn main() {
+    let input = "adbcdaDd";
+    let mut user_input = String::new();
+    println!("Please type one character:");
+    io::stdin().read_line(&mut user_input).unwrap();
+    char_in_string(input, &user_input);
 }
